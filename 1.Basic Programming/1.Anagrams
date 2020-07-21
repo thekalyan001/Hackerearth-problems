@@ -1,0 +1,38 @@
+Minimum number we have to delete in the given two string to form the anagram (same-same) and print that
+
+
+#include <bits/stdc++.h>
+using namespace std;
+int RemoveFormAnagram(string str1, string str2)
+{
+    //Initialize count arrays with zeroes
+    int count1[26] = {0}, count2[26] = {0};
+    //store the frequiencies of characters in string1 in count1 
+    for (int i=0; str1[i]!='\0'; i++)
+    {
+        count1[str1[i]-'a']++;
+    }
+
+    for (int i=0; str2[i]!='\0'; i++)
+    {
+        count2[str2[i]-'a']++;
+}
+    int result = 0;
+    for (int i=0; i<26; i++)
+    {
+        result = result + abs(count1[i] - count2[i]);
+    }
+    return result;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    while(n--){
+    string str1,str2;
+    cin>>str1>>str2;
+    cout<<RemoveFormAnagram(str1, str2)<<endl;;
+    }
+    return 0;
+}
